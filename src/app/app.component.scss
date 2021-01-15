@@ -1,0 +1,34 @@
+
+.container-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-filter-row {
+  display: flex;
+  flex-direction: row;
+}
+.input-number {
+    text-align: right;
+}
+
+.divider-vertical {
+  // height: 14px;
+  line-height: normal;
+  // border-right-color: darkslategrey;
+}
+
+.operator {
+  width: 40px;
+}
+
+.job-id {
+  width: 200px;
+}
+
+.job-states {
+  width: 400px;
+}
+.job-names {
+  width: 400px;
+}

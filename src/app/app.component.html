@@ -1,0 +1,100 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row></mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-filter">
+  <div class="container-filter-row">
+    <mat-form-field class="operator">
+      <mat-label>Op</mat-label>
+      <mat-select [(value)]="jobIdOperator">
+        <mat-option *ngFor="let operator of jobIdOperators" [value]="operator.value">
+          {{operator.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field class="job-id">
+      <mat-label>Job Id</mat-label>
+      <input class="input-number" matInput type="number" [(ngModel)]="jobId">
+      <button mat-button *ngIf="jobId" matSuffix mat-icon-button aria-label="Clear" (click)="jobId=null">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    &nbsp;
+    <mat-divider class="divider-vertical" [vertical]="true"></mat-divider>
+    &nbsp;
+
+    <mat-form-field class="job-states">
+      <mat-label>Job State(s)</mat-label>
+      <mat-select [formControl]="jobStatesControl" multiple [value]="jobStates">
+        <mat-option *ngFor="let option of jobStateOptions" [value]="option.value">
+          {{option.viewValue}}
+        </mat-option>
+      </mat-select>
+      <button mat-button *ngIf="jobStatesControl.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="jobStates=[]; $event.stopPropagation()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="container-filter-row">
+    <mat-form-field class="job-names">
+      <mat-label>Job Name(s)</mat-label>
+      <mat-select [formControl]="jobNamesControl" multiple [value]="jobNames">
+        <mat-option *ngFor="let option of jobNameOptions" [value]="option.value">
+          {{option.viewValue}}
+        </mat-option>
+      </mat-select>
+      <button mat-button *ngIf="jobNamesControl.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="jobNames=[]; $event.stopPropagation()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="container-filter-row">
+    <mat-form-field class="datetime-type">
+      <mat-label>DateTime</mat-label>
+      <mat-select [formControl]="dateTimeControl" [value]="dateTime">
+        <mat-option *ngFor="let option of dateTimeOptions" [value]="option.value">
+          {{option.viewValue}}
+        </mat-option>
+      </mat-select>
+      <button mat-button *ngIf="dateTimeControl.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="dateTime=''; $event.stopPropagation()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    &nbsp;
+    <mat-divider class="divider-vertical" [vertical]="true"></mat-divider>
+    &nbsp;
+
+    <mat-form-field class="operator">
+      <mat-label>Op</mat-label>
+      <mat-select [(value)]="leftDateTimeOperator">
+        <mat-option *ngFor="let operator of leftDateTimeOperators" [value]="operator.value">
+          {{operator.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    &nbsp;
+
+    &nbsp;
+    <mat-divider class="divider-vertical" [vertical]="true"></mat-divider>
+    &nbsp;
+
+    <mat-form-field class="operator">
+      <mat-label>Op</mat-label>
+      <mat-select [(value)]="rightDateTimeOperator">
+        <mat-option *ngFor="let operator of rightDateTimeOperators" [value]="operator.value">
+          {{operator.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    &nbsp;
+  </div>
+</div>
